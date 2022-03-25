@@ -4,6 +4,7 @@
 </div>
 <br />
 
+# Table of Contents
 1. [Installation](#installation)
 2. [Quickstart Guide](#quickstart-guide)
 3. [Publishing and installing](#publishing-and-installing-widgets)
@@ -11,6 +12,8 @@
    2. [Installing](#installing)
 3. [The Config File](#the-config-file)
 4. [Using the CLI](#using-the-cli)
+
+<br />
 
 # Installation
 Download, unzip, navigate to the folder, and install with `npm`:
