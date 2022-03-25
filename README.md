@@ -4,13 +4,13 @@
 </div>
 <br />
 
-1) [Installation](#installation)
-2) [Quickstart Guide](#quickstart-guide)
-3) [Publishing and installing](#publishing-and-installing)
-  1) [Publishing](#publishing)
-  2) [Installing](#installing)
-3) [The Config File](#the-config-file)
-4) [Using the CLI](#using-the-cli)
+1. [Installation](#installation)
+2. [Quickstart Guide](#quickstart-guide)
+3. [Publishing and installing](#publishing-and-installing-widgets)
+   1. [Publishing](#publishing)
+   2. [Installing](#installing)
+3. [The Config File](#the-config-file)
+4. [Using the CLI](#using-the-cli)
 
 # Installation
 Download, unzip, navigate to the folder, and install with `npm`:
