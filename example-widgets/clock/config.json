@@ -1,0 +1,15 @@
+{
+  "name": "clock",
+  "version": "1.0.0",
+  "description": "Custom desktop widget",
+  "index": "./index.html",
+  "properties": {
+    "x": 100,
+    "y": 100,
+    "width": 100,
+    "height": 100,
+    "transparent": false,
+    "interact": true,
+    "draggable": true
+  }
+}
