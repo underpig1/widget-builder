@@ -47,7 +47,8 @@ Here's how to install a widget that was shared with you:
 <br />
 
 # The Config File
-A standard config file:
+Every widgets project contains a `config.json` file. This file tells the program what settings you would like to use for your widget.<br />
+Here's a standard config file:
 ```json
 {
   "name": "widget",
@@ -88,7 +89,7 @@ Once widget builder is installed, the CLI can be accessed with the keyword `widg
 | `widgets install [folder]`   | Installs widget at folder |
 | `widgets init [folder]`      | Initializes widgets project |
 | `widgets list`               | Lists all installed widgets |
-| `widgets uninstall <widget>` | Uninstall widget |
+| `widgets uninstall <widget>` | Uninstall widget by name |
 
 ### Options
 | Command | Definition |
