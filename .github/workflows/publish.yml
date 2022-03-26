@@ -10,8 +10,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v2
-        with:
-          node-version: 16
+      with:
+        node-version: 16
     - run: npm install -g
     - run: npm start
     - run: npm test
@@ -20,9 +20,9 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v2
-        with:
-          node-version: 16
-          registry-url: https://registry.npmjs.org/
+      with:
+        node-version: 16
+        registry-url: https://registry.npmjs.org/
     - run: npm publish
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
