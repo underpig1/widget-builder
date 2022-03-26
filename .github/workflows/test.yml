@@ -1,15 +1,16 @@
-name: publish
+name: test
 
 on:
-  release:
-    types: [ created ]
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
 
 jobs:
-  publish:
+  test:
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@v2
     - run: npm install -g
     - run: npm start
     - run: npm test
-    - run: npm publish
