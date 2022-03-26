@@ -22,6 +22,10 @@ Download, unzip, navigate to the folder, and install with `npm`:
 $ npm install -g
 $ npm start
 ```
+or download directly from `npm`:
+```
+$ npm install -g widget-builder
+```
 
 # Quickstart Guide
 1) Create a new folder
