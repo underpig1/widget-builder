@@ -7,7 +7,7 @@ on:
     branches: [ master ]
 
 jobs:
-  test:
+  publish:
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@v2
