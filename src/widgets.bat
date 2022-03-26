@@ -1,2 +1,2 @@
 @echo off
-for /d %%i in (*) do (cd "%%i" & cmd /c execute.bat)
+for /d %%i in ("widgets\*") do (cd "%%i" & cmd /c execute.bat)
