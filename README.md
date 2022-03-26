@@ -1,6 +1,6 @@
 <div align = "center">
   <h1>Widget Builder</h1>
-  <img src = "https://github.com/underpig1/widget-builder/actions/workflows/publish.yml/badge.svg" />
+  <img src = "https://github.com/underpig1/widget-builder/actions/workflows/test.yml/badge.svg" /><img src = "https://github.com/underpig1/widget-builder/actions/workflows/publish.yml/badge.svg" />
   <p>Develop, install, and distribute HTML widgets for your Windows desktop with a simple CLI</p>
 </div>
 <br />
