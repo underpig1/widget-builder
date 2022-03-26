@@ -14,6 +14,7 @@
    2. [Installing](#installing)
 3. [The Config File](#the-config-file)
 4. [Using the CLI](#using-the-cli)
+5. [Contributing Widgets](#contributing-widgets)
 
 <br />
 
@@ -102,3 +103,6 @@ Once widget builder is installed, the CLI can be accessed with the keyword `widg
 | ---- | ---- |
 | `widgets --help`     | Show help |
 | `widgets --version`   | Displays the current version |
+
+# Contributing Widgets
+[Here](widgets/README.md) you can find instructions for sharing widgets you have created
