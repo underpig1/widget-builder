@@ -7,7 +7,7 @@
     "widgets": "./bin/cli.js"
   },
   "scripts": {
-    "start": "./widget-tools/install.bat",
+    "start": "cmd /c widget-tools\\install.bat",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "underpig",
