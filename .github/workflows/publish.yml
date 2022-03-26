@@ -5,12 +5,17 @@ on:
     types: [ published ]
 
 jobs:
-  publish:
+  test:
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@v2
     - run: npm install -g
     - run: npm start
     - run: npm test
-    - run: npm login ${{ secrets.NPM_TOKEN }}
+  publish:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v2
     - run: npm publish
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
