@@ -4,6 +4,7 @@
   "description": "CLI and program to compile HTML into custom desktop widgets",
   "license": "MIT",
   "keywords": ["windows", "widgets", "javascript", "html"],
+  "website": "https://github.com/underpig1/widget-builder",
   "main": "bin/cli.js",
   "bin": {
     "widgets": "./bin/cli.js"
