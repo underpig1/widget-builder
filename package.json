@@ -15,9 +15,9 @@
   },
   "author": "underpig",
   "dependencies": {
-    "electron": "16.0.6",
-    "fs-extra": "6.14.11",
+    "electron": "^17.2.0",
+    "fs-extra": "^10.0.1",
     "yargs": "^17.4.0",
-    "path": "6.14.11"
+    "path": "^0.12.7"
   }
 }
