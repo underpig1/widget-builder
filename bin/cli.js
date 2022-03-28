@@ -83,9 +83,25 @@ require("yargs")
   }, function (argv) {
     installed = get_all_installed_widgets()
     target = installed.filter((x) => x.name == argv.widget)[0]
-    console.log(target.path)
     fs.rmdirSync(target.path, { recursive: true, force: true })
     console.log(target.name + " successfully uninstalled!")
+  })
+  .command("config <widget>", "Configure widget by name", (yargs) => {
+    yargs.positional("widget", {
+      type: "string",
+      describe: "The widget to configure"
+    })
+  }, function (argv) {
+    installed = get_all_installed_widgets()
+    target = installed.filter((x) => x.name == argv.widget)[0]
+    var exec = require("child_process").exec
+    try {
+      exec(`start \"\" \"${path.join(target.path, "config.json")}\"`)
+      console.log("Now editing config.json of " + target.name)
+    }
+    catch (err) {
+      console.error("Cannot open " + path.join(target.path, "config.json"))
+    }
   })
   .help()
   .argv

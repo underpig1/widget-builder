@@ -97,6 +97,7 @@ Once widget builder is installed, the CLI can be accessed with the keyword `widg
 | `widgets init [folder]`      | Initializes widgets project |
 | `widgets list`               | Lists all installed widgets |
 | `widgets uninstall <widget>` | Uninstall widget by name |
+| `widgets config <widget>` | Configure widget by name |
 
 ### Options
 | Command | Definition |
