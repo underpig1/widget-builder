@@ -2,7 +2,7 @@ module.exports = { build_local, build_dist, build_start }
 
 function build_local(filepath) {
   const path = require("path")
-  build(filepath, dist = true)
+  build(filepath, "", dist = true)
 }
 
 function build_dist(filepath) {
