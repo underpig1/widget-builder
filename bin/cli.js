@@ -104,7 +104,6 @@ require("yargs")
     try {
       exec(`start \"\" \"${path.join(target.path, "config.json")}\"`)
       console.log("Now editing config.json of " + target.name)
-      process.exit(1)
     }
     catch (err) {
       console.error("Cannot open " + path.join(target.path, "config.json"))
@@ -125,11 +124,9 @@ require("yargs")
       try {
         exec(`npm start \"${folder}\"`)
         console.log("widget successfully started at " + folder)
-        process.exit(1)
       }
       catch (err) {
         console.error("Cannot start " + folder)
-        process.exit(1)
       }
     }, 20)
   })

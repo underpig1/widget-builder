@@ -1,7 +1,5 @@
 module.exports = { build_local, build_dist, build_start }
 
-build_start("C:\\Users\\chase\\Downloads\\test-drag\\")
-
 function build_local(filepath) {
   const path = require("path")
   build(filepath, dist = true)
