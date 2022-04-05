@@ -1,0 +1,15 @@
+{
+  "name": "spotify-listener",
+  "version": "1.0.0",
+  "description": "Spotify listener",
+  "index": "./index.html",
+  "properties": {
+    "x": 1450,
+    "y": 200,
+    "width": 400,
+    "height": 300,
+    "transparent": true,
+    "interact": true,
+    "draggable": true
+  }
+}

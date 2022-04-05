@@ -1,0 +1,21 @@
+.main {
+  display: inline-block;
+  width: 345px;
+  height: 200px;
+  border-radius: 12px;
+  background: white;
+  box-shadow: 0 5px 20px #00000011;
+}
+
+.section {
+  padding: 20px;
+}
+
+.dom {
+  font-size: 12;
+  font-family: "Segoe UI";
+}
+
+.buttons {
+
+}

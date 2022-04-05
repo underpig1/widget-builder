@@ -1,13 +1,20 @@
-module.exports = { build_local, build_dist }
+module.exports = { build_local, build_dist, build_start }
+
+build_start("C:\\Users\\chase\\Downloads\\test-drag\\")
 
 function build_local(filepath) {
   const path = require("path")
-  build(filepath, dist = false)
+  build(filepath, dist = true)
 }
 
 function build_dist(filepath) {
   const path = require("path")
   build(filepath, path.join(path.dirname(filepath), "dist"), dist = true)
+}
+
+function build_start(filepath) {
+  const path = require("path")
+  build(filepath, filepath, dist = true)
 }
 
 function build(filepath, target = "", dist = false) {
@@ -20,19 +27,19 @@ function build(filepath, target = "", dist = false) {
   try {
     pkg = require(pkgpath)
     autopkg = false
-    build_target()
+    build_target(filepath, target, pkg)
   }
   catch (err) {
     fs.copyFile(configpath, pkgpath, error)
     pkg = require(configpath)
     autopkg = true
-    build_target()
+    build_target(filepath, target, pkg)
   }
 
-  function build_target() {
+  function build_target(filepath, target, pkg) {
     const config =  require(configpath)
 
-    if (!target) var target = process.env.APPDATA + "\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\widgets\\" + pkg.name
+    if (target == "") var target = process.env.APPDATA + "\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\widgets\\" + pkg.name
 
     setTimeout(() => {
       if (autopkg) {
@@ -58,17 +65,20 @@ function build(filepath, target = "", dist = false) {
 
     fs.exists(target, (exists) => {
       if (!exists) {
-        fs.mkdir(target, error)
-        copy()
+        try {
+          fs.mkdir(target, error)
+        }
+        catch {}
+        copy(filepath, target, pkg)
       }
       else {
-        copy()
+        copy(filepath, target, pkg)
       }
     })
 
-    function copy() {
-      fs.copy(filepath, target).then(() => { cont() }).catch(err => console.error(err))
-      function cont() {
+    function copy(filepath, target, pkg) {
+      fs.copy(filepath, target).then(() => { cont(filepath, target, pkg) }).catch(() => {cont(filepath, target, pkg)})
+      function cont(filepath, target, pkg) {
         if (dist) fs.copyFile(path.join(__dirname, "..\\src\\install.js"), path.join(target, "install.js"), error)
         fs.copyFile(pkgpath, path.join(target, "config.json"), error)
         fs.copyFile(path.join(__dirname, "..\\src\\main.js"), path.join(target, "main.js"), error)

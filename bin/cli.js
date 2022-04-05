@@ -21,6 +21,7 @@ require("yargs")
     console.log("Building widget at " + folder)
     build.build_local(folder)
     console.log("widget successfully built and installed! Run 'widgets list' to see all enabled widgets")
+    process.exit(1)
   })
   .command("publish [folder]", "Generates a dist file that can be installed by the widgets cli", (yargs) => {
     yargs.positional("folder", {
@@ -32,6 +33,7 @@ require("yargs")
     console.log("Publishing widget at " + folder)
     build.build_dist(folder)
     console.log("widget successfully built to " + path.join(path.dirname(folder), "dist"))
+    process.exit(1)
   })
   .command("install [folder]", "Installs widget at folder", (yargs) => {
     yargs.positional("folder", {
@@ -48,6 +50,7 @@ require("yargs")
       }
     })
     console.log("widget successfully installed at " + folder + "!")
+    process.exit(1)
   })
   .command("init [folder]", "Initializes widgets project", (yargs) => {
     yargs.positional("folder", {
@@ -66,6 +69,7 @@ require("yargs")
         fs.writeFile(path.join(folder, "config.json"), JSON.stringify(config, null, 2), (err) => { if (err) console.error(err) })
         readline.close()
         console.log("widget successfully initialized at " + folder + "! You can now edit your project's properties at config.json")
+        process.exit(1)
       })
     }, 10)
   })
@@ -74,6 +78,7 @@ require("yargs")
     installed = installed.map((x) => x.name + (x.config.version ? " --- " + x.config.version : ""))
     installed = installed.join("\n")
     console.log(installed)
+    process.exit(1)
   })
   .command("uninstall <widget>", "Uninstall widget", (yargs) => {
     yargs.positional("widget", {
@@ -85,6 +90,7 @@ require("yargs")
     target = installed.filter((x) => x.name == argv.widget)[0]
     fs.rmdirSync(target.path, { recursive: true, force: true })
     console.log(target.name + " successfully uninstalled!")
+    process.exit(1)
   })
   .command("config <widget>", "Configure widget by name", (yargs) => {
     yargs.positional("widget", {
@@ -98,10 +104,34 @@ require("yargs")
     try {
       exec(`start \"\" \"${path.join(target.path, "config.json")}\"`)
       console.log("Now editing config.json of " + target.name)
+      process.exit(1)
     }
     catch (err) {
       console.error("Cannot open " + path.join(target.path, "config.json"))
+      process.exit(1)
     }
+  })
+  .command("start [folder]", "Starts the widget at folder", (yargs) => {
+    yargs.positional("folder", {
+      type: "string",
+      describe: "The folder containing the content to start (includes HTML and optional config.json)"
+    })
+  }, function (argv) {
+    argv.folder ? folder = argv.folder : folder = path.resolve(".")
+    console.log("Starting widget at " + folder)
+    build.build_start(folder)
+    setTimeout(() => {
+      var exec = require("child_process").exec
+      try {
+        exec(`npm start \"${folder}\"`)
+        console.log("widget successfully started at " + folder)
+        process.exit(1)
+      }
+      catch (err) {
+        console.error("Cannot start " + folder)
+        process.exit(1)
+      }
+    }, 20)
   })
   .help()
   .argv
