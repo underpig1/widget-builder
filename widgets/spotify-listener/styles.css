@@ -13,7 +13,11 @@ body {
 }
 
 .section {
+  display: flex;
   padding: 20px;
+  width: 345px;
+  height: 200px;
+  justify-content: center;
 }
 
 .dom {
@@ -22,5 +26,12 @@ body {
 }
 
 .buttons {
+  margin-top: 15px;
+  height: 45px;
+}
 
+.btn {
+  width: 35px;
+  height: 35px;
+  border-radius: 17.5px;
 }

@@ -1,1 +1,1 @@
-npm start
+cd %~dp0 & npm start

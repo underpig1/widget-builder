@@ -1,2 +1,1 @@
-@echo off
-for /d %%i in ("widgets\*") do ("wscript %%i\execute.vbs")
+for /d %%i in ("widgets\*") do "wscript %%i\execute.vbs"
