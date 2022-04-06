@@ -83,6 +83,7 @@ function build(filepath, target = "", dist = false) {
         fs.copyFile(path.join(__dirname,"..\\src\\package.json"), path.join(target, "package.json"), error)
         fs.copyFile(path.join(__dirname,"..\\src\\preload.js"), path.join(target, "preload.js"), error)
         fs.copyFile(path.join(__dirname,"..\\src\\execute.bat"), path.join(target, "execute.bat"), error)
+        fs.copyFile(path.join(__dirname,"..\\src\\execute.vbs"), path.join(target, "execute.vbs"), error)
       }
     }
   }
