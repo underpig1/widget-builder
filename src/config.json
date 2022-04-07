@@ -13,5 +13,6 @@
     "draggable": true,
     "top": false
   },
-  "requirements": []
+  "requirements": [],
+  "install": "cmd"
 }

@@ -18,4 +18,12 @@ setTimeout(() => {
       })
     }
   }
+  if (pkg.hasOwnProperty("install")) {
+    exec.exec(pkg.install, (err, stdout, stderr) => {
+      if (err) {
+        console.error(err)
+        return
+      }
+    })
+  }
 }, 1000)
