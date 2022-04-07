@@ -10,20 +10,26 @@ fs.copy(__dirname,  target_dir).then(() => { console.log("Successfully installed
 setTimeout(() => {
   if (pkg.hasOwnProperty("requirements")) {
     for (var req of pkg.requirements) {
-      exec.exec("cd \"" + target_dir + "\" & npm install " + req, (err, stdout, stderr) => {
-        if (err) {
-          console.error(err)
-          return
-        }
-      })
+      run_cmd("cd \"" + target_dir + "\" & npm install ")
     }
   }
   if (pkg.hasOwnProperty("install")) {
-    exec.exec(pkg.install, (err, stdout, stderr) => {
-      if (err) {
-        console.error(err)
-        return
+    if (Array.isArray(pkg.install)) {
+      for (var cmd of pkg.install) {
+        run_cmd(cmd)
       }
-    })
+    }
+    else {
+      run_cmd(pkg.install)
+    }
   }
 }, 1000)
+
+function run_cmd(cmd) {
+  exec(cmd, (err, stdout, stderr) => {
+    if (err) {
+      console.error(err)
+      return
+    }
+  })
+}

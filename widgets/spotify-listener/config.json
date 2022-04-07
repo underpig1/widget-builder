@@ -13,5 +13,6 @@
     "draggable": true,
     "top": true
   },
-  "requirements": ["node-gyp", "@nodert-win10-cu/windows.media.playback"]
+  "requirements": ["node-gyp", "@nodert-win10-cu/windows.media.playback"],
+  "install": "pip install winrt"
 }
