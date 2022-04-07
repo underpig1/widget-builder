@@ -52,7 +52,9 @@ function build(filepath, target = "", dist = false) {
     //   fs.writeFile(pkgpath, JSON.stringify(pkg, null, 2), error)
     // }
 
-    for (var prop of ["x", "y", "width", "height", "transparent", "interact", "draggable"]) {
+    var config_keys = Object.entries(config.properties).map(([key, value]) => { return key })
+
+    for (var prop of config_keys) {
       if (!pkg.properties.hasOwnProperty(prop)) pkg.properties[prop] = config.properties[prop]
     }
     setTimeout(() => {

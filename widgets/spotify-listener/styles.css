@@ -4,34 +4,140 @@ body {
 }
 
 .main {
-  display: inline-block;
+  display: flex;
   width: 345px;
   height: 200px;
   border-radius: 12px;
-  background: white;
+  background-image: linear-gradient(to bottom, #00000050, #000000FF), url("media/album-cover.jpg");
+  background-size: cover;
   box-shadow: 0 5px 20px #00000011;
 }
 
-.section {
+.sector {
   display: flex;
-  padding: 20px;
-  width: 345px;
-  height: 200px;
-  justify-content: center;
+  position: absolute;
+  min-width: 345px;
+  left: 0;
+  align-items: center;
 }
 
 .dom {
   font-size: 12;
   font-family: "Segoe UI";
+  color: #D0D0D0;
 }
 
 .buttons {
+  display: inline-flex;
   margin-top: 15px;
-  height: 45px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .btn {
+  display: inline-table;
+  border: none;
+  border-radius: 17.5px;
+  outline: none;
+  background: #505050;
+  transition: transform 0.1s;
+  transform: scale(1);
+  background-size: cover;
+  clip-path: inset(0px round 17.5px);
+}
+
+.btn-small {
+  position: relative;
   width: 35px;
   height: 35px;
+  bottom: 5px;
   border-radius: 17.5px;
+}
+
+.btn-large {
+  width: 45px;
+  height: 45px;
+  border-radius: 22.5px;
+  margin-left: 25px;
+  margin-right: 25px;
+  clip-path: inset(0px round 22.5px);
+}
+
+.btn:active {
+  outline: none;
+  transform: scale(0.9);
+}
+
+.hover-space {
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 100%;
+  height: 100%;
+  background: #D0D0D0;
+  transition: top 0.2s;
+}
+
+.hover-space div {
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: -100%;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  pointer-events: none;
+  filter: invert(29%) sepia(0%) saturate(1%) hue-rotate(357deg) brightness(99%) contrast(89%);
+  background-size: cover;
+  transition: top 0.2s, opacity 0.2s;
+}
+
+.btn:hover .hover-space {
+  top: 0;
+}
+
+.btn:hover .hover-space div {
+  top: 0;
+}
+
+.btn:active .hover-space div {
+  opacity: 0 !important;
+}
+
+.info {
+  text-align: center;
+}
+
+.progress-bar {
+  display: inline-flex;
+  position: absolute;
+  top: 35px;
+  left: 35px;
+  right: 35px;
+  height: 6px;
+  border-radius: 6px;
+  background: #505050;
+}
+
+#progress-indicator {
+  display: inline-flex;
+  position: absolute;
+  height: 6px;
+  width: 98%;
+  border-radius: 6px;
+  background: #303030;
+  transition: width 0.1s;
+}
+
+#skip-back, #skip-back div {
+  background-image: url("media/skip-back.svg");
+}
+
+#pause-play, #pause-play div {
+  background-image: url("media/pause-play.svg");
+}
+
+#skip-forward, #skip-forward div {
+  background-image: url("media/skip-forward.svg");
 }

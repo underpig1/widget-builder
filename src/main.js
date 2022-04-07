@@ -22,6 +22,7 @@ function init() {
     const top = new BrowserWindow({parent: main, modal: true, transparent: true, frame: false, show: true, width: 0, height: 0})
     top.setSkipTaskbar(true)
   }
+  main.setAlwaysOnTop(config.properties.top)
   main.once("ready-to-show", () => main.show())
   main.loadFile(config.index)
 }

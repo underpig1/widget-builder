@@ -6,10 +6,12 @@
   "properties": {
     "x": 1450,
     "y": 200,
-    "width": 400,
-    "height": 300,
+    "width": 355,
+    "height": 215,
     "transparent": true,
     "interact": true,
-    "draggable": true
-  }
+    "draggable": true,
+    "top": true
+  },
+  "requirements": ["node-gyp", "@nodert-win10-cu/windows.media.playback"]
 }

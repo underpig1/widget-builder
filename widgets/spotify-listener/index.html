@@ -6,23 +6,29 @@
     <title>Spotify listener</title>
   </head>
   <body>
-    <div class = "draggable" style = "position: absolute; width: 400px; height: 300px; z-index: -1; background: none !important;"></div>
-    <div class = "main">
-      <div class = "section">
+    <div class = "main draggable">
+      <div class = "sector" style = "top: 45px;">
         <div class = "buttons interact">
           <div class = "media-control">
-            <button id = "skip-back" class = "btn btn-small" name = "hello" />
-            <button id = "pause-play" class = "btn btn-large" />
-            <button id = "skip-forward" class = "btn btn-small" />
+            <button id = "skip-back" class = "btn btn-small" onclick = "skipBack()"><div class = "hover-space"><div></div></div></button>
+            <button id = "pause-play" class = "btn btn-large" onclick = "pausePlay()"><div class = "hover-space"><div></div></div></button>
+            <button id = "skip-forward" class = "btn btn-small" onclick = "skipForward()"><div class = "hover-space"><div></div></div></button>
           </div>
         </div>
-        <div class = "progess-bar">
+      </div>
+      <div class = "sector" style = "top: 90px;">
+        <p id = "progress-time" class = "dom" style = "position: absolute; left: 35px; color: #D0D0D080 !important;">1:01</p>
+        <div class = "progress-bar">
+          <div id = "progress-indicator"></div>
         </div>
+      </div>
+      <div class = "sector" style = "top: 130px;">
         <div class = "info">
-          <p id = "song-title" class = "dom" style = "font-family: 'Segoe UI'; padding: 20px">Violet</p>
+          <p id = "song-title" class = "dom" style = "position: absolute; left: 35px;">Violet</p>
+          <p id = "song-artist" class = "dom" style = "position: absolute; right: 35px;">Waterparks</p>
         </div>
-        <script src = "./renderer.js" charset = "utf-8"></script>
       </div>
     </div>
+    <script src = "./renderer.js" charset = "utf-8"></script>
   </body>
 </html>

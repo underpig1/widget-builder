@@ -10,6 +10,8 @@
     "height": 100,
     "transparent": false,
     "interact": true,
-    "draggable": true
-  }
+    "draggable": true,
+    "top": false
+  },
+  "requirements": []
 }
