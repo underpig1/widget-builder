@@ -9,7 +9,7 @@ body {
   height: 200px;
   border-radius: 12px;
   background-image: linear-gradient(to bottom, #00000050, #000000FF), url("media/album-cover.jpg");
-  background-size: cover;
+  background-size: 100%;
   box-shadow: 0 5px 20px #00000011;
 }
 

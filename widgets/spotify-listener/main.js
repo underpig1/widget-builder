@@ -10,9 +10,9 @@ function init() {
     frame: false,
     transparent: config.properties.transparent,
     show: false,
-    nodeIntegration: true,
     webPreferences: {
-      preload: path.join(__dirname, "preload.js")
+      preload: path.join(__dirname, "preload.js"),
+      nodeIntegration: true
     }
   })
   main.setPosition(config.properties.x, config.properties.y)

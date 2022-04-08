@@ -4,6 +4,7 @@ import asyncio
 import sys
 from winrt.windows.media.control import GlobalSystemMediaTransportControlsSessionManager as MediaManager
 from winrt.windows.storage.streams import DataReader, Buffer, InputStreamOptions
+import os
 
 async def get_current_session():
     sessions = await MediaManager.request_async()
@@ -11,7 +12,8 @@ async def get_current_session():
     return current_session
 
 async def retrieve():
-    current_session = asyncio.run(get_current_session())
+    sessions = await MediaManager.request_async()
+    current_session = sessions.get_current_session()
     if current_session:
         info = await current_session.try_get_media_properties_async()
         info_dir = {song_attr: info.__getattribute__(song_attr) for song_attr in dir(info) if song_attr[0] != "_"}
@@ -46,7 +48,7 @@ def scrape_thumb():
     asyncio.run(read_stream_into_buffer(thumb_stream_ref, thumb_read_buffer))
     buffer_reader = DataReader.from_buffer(thumb_read_buffer)
     byte_buffer = buffer_reader.read_bytes(thumb_read_buffer.length)
-    with open(".\\media_thumb.jpg", "wb+") as fobj:
+    with open(os.path.dirname(os.path.abspath(__file__)) + "\\media\\album-cover.jpg", "wb+") as fobj:
         fobj.write(bytearray(byte_buffer))
 
 # main
@@ -84,4 +86,8 @@ if len(sys.argv) > 1:
         timeline_position = asyncio.run(get_timeline_duration())
         sys.stdout.write(timeline_position)
     elif sys.argv[1] == "summary":
+        media = asyncio.run(retrieve())
+        media = {song_attr: media[song_attr] for song_attr in media if song_attr != "thumbnail"}
+        media["position"] = asyncio.run(get_timeline_position())
+        media["duration"] = asyncio.run(get_timeline_duration())
         sys.stdout.write(str(media))
