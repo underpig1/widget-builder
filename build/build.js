@@ -80,12 +80,12 @@ function build(filepath, target = "", dist = false) {
       fs.copy(filepath, target).then(() => { cont(filepath, target, pkg) }).catch(() => {cont(filepath, target, pkg)})
       function cont(filepath, target, pkg) {
         if (dist) fs.copyFile(path.join(__dirname, "..\\src\\install.js"), path.join(target, "install.js"), error)
-        fs.copyFile(pkgpath, path.join(target, "config.json"), error)
-        fs.copyFile(path.join(__dirname, "..\\src\\main.js"), path.join(target, "main.js"), error)
-        fs.copyFile(path.join(__dirname,"..\\src\\package.json"), path.join(target, "package.json"), error)
-        fs.copyFile(path.join(__dirname,"..\\src\\preload.js"), path.join(target, "preload.js"), error)
-        fs.copyFile(path.join(__dirname,"..\\src\\execute.bat"), path.join(target, "execute.bat"), error)
-        fs.copyFile(path.join(__dirname,"..\\src\\execute.vbs"), path.join(target, "execute.vbs"), error)
+        fs.exists(path.join(target, "config.json"), (exists) => {if (!exists) {fs.copyFile(pkgpath, path.join(target, "config.json"), error)}})
+        fs.exists(path.join(target, "main.js"), (exists) => {if (!exists) {fs.copyFile(path.join(__dirname, "..\\src\\main.js"), path.join(target, "main.js"), error)}})
+        fs.exists(path.join(target, "package.json"), (exists) => {if (!exists) {fs.copyFile(path.join(__dirname,"..\\src\\package.json"), path.join(target, "package.json"), error)}})
+        fs.exists(path.join(target, "preload.js"), (exists) => {if (!exists) {fs.copyFile(path.join(__dirname,"..\\src\\preload.js"), path.join(target, "preload.js"), error)}})
+        fs.exists(path.join(target, "execute.bat"), (exists) => {if (!exists) {fs.copyFile(path.join(__dirname,"..\\src\\execute.bat"), path.join(target, "execute.bat"), error)}})
+        fs.exists(path.join(target, "execute.vbs"), (exists) => {if (!exists) {fs.copyFile(path.join(__dirname,"..\\src\\execute.vbs"), path.join(target, "execute.vbs"), error)}})
       }
     }
   }
@@ -95,5 +95,9 @@ function build(filepath, target = "", dist = false) {
       console.error(err)
       return
     }
+  }
+
+  function exists(path) {
+    fs.exists(target, (exists) => {if (!exists) {}})
   }
 }

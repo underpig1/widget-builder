@@ -6,7 +6,7 @@
     <title>Spotify listener</title>
   </head>
   <body>
-    <div class = "main draggable">
+    <div id = "main" class = "main draggable">
       <div class = "sector" style = "top: 45px;">
         <div class = "buttons interact">
           <div class = "media-control">
@@ -17,15 +17,15 @@
         </div>
       </div>
       <div class = "sector" style = "top: 90px;">
-        <p id = "progress-time" class = "dom" style = "position: absolute; left: 35px; color: #D0D0D080 !important;">1:01</p>
+        <p id = "progress-time" style = "position: absolute; left: 35px; color: #D0D0D080 !important;">Playing...</p>
         <div class = "progress-bar">
           <div id = "progress-indicator"></div>
         </div>
       </div>
       <div class = "sector" style = "top: 130px;">
         <div class = "info">
-          <p id = "song-title" class = "dom" style = "position: absolute; left: 35px;">Violet</p>
-          <p id = "song-artist" class = "dom" style = "position: absolute; right: 35px;">Waterparks</p>
+          <div class = "scroll-title l" style = "left: 35px;"><p id = "song-title">Violet</p></div>
+          <div class = "scroll-title r" style = "right: 35px;"><p id = "song-artist">Waterparks</p></div>
         </div>
       </div>
     </div>

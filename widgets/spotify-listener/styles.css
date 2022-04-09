@@ -8,9 +8,9 @@ body {
   width: 345px;
   height: 200px;
   border-radius: 12px;
-  background-image: linear-gradient(to bottom, #00000050, #000000FF), url("media/album-cover.jpg");
   background-size: 100%;
   box-shadow: 0 5px 20px #00000011;
+  background-image: linear-gradient(to bottom, #00000050, #000000FF), url("media/album-cover.jpg")
 }
 
 .sector {
@@ -21,7 +21,7 @@ body {
   align-items: center;
 }
 
-.dom {
+p {
   font-size: 12;
   font-family: "Segoe UI";
   color: #D0D0D0;
@@ -140,4 +140,67 @@ body {
 
 #skip-forward, #skip-forward div {
   background-image: url("media/skip-forward.svg");
+}
+
+.scroll-title {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  width: 130px;
+  height: 45px;
+  overflow-x: hidden;
+  white-space: nowrap;
+}
+
+.scroll-title.l p {
+  left: 0;
+}
+
+.scroll-title.r p {
+  right: 0;
+}
+
+.scroll-title p {
+  position: absolute;
+  top: 0;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes loop-scroll-l {
+  0% {
+    left: 0;
+  }
+  20% {
+    left: 0;
+  }
+  50% {
+    left: -100%;
+  }
+  50.01% {
+    left: 100%;
+  }
+  100% {
+    left: 0;
+  }
+}
+
+@keyframes loop-scroll-r {
+  0% {
+    right: 0;
+  }
+  20% {
+    right: 0;
+  }
+  50% {
+    right: 100%;
+  }
+  50.01% {
+    right: -100%;
+  }
+  100% {
+    right: 0;
+  }
 }
