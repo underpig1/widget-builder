@@ -24,6 +24,8 @@ var pause = `url("media/pause.svg")`
 var play = `url("media/play.svg")`
 var main = document.getElementById("main")
 var backup = document.getElementById("backup")
+var preview = document.getElementById("preview")
+var preview_backup = document.getElementById("preview-backup")
 var paused = true
 var closed = true
 
@@ -105,16 +107,20 @@ setInterval(() => {
   song_artist.innerText = result.artist
   main.style.background = "url(\"media/album-cover.jpg\")"
   if (song_title.innerText.length >= 16) {
-    song_title.style.animation = "loop-scroll-l 10s linear infinite"
+    song_title.style.animation = `loop-scroll ${song_title.innerText.length/2}s linear infinite`
   }
   else {
     song_title.style.animation = "none"
   }
   if (song_artist.innerText.length >= 16) {
-    song_artist.style.animation = "loop-scroll-r 10s linear infinite"
+    song_artist.style.animation = `loop-scroll ${song_artist.innerText.length/2}s linear infinite`
+    song_artist.style.right = "auto"
+    song_artist.style.left = "0"
   }
   else {
     song_artist.style.animation = "none"
+    song_artist.style.right = "0"
+    song_artist.style.left = "auto"
   }
   if (paused) {
     pause_play.style.backgroundImage = play
@@ -124,14 +130,13 @@ setInterval(() => {
     pause_play.style.backgroundImage = pause
     pause_play.childNodes[0].childNodes[0].style.backgroundImage = pause
   }
+  var time = new Date().getTime()
+  main.style.setProperty("background-image", "url('media/album-cover.jpg?v=" + time + "')", "important")
+  setTimeout(() => {
+    backup.style.setProperty("background-image", "url('media/album-cover.jpg?v=" + time + "')", "important")
+  }, 500)
+  preview.style.setProperty("background-image", "url('media/album-cover.jpg?v=" + time + "')", "important")
+  setTimeout(() => {
+    preview_backup.style.setProperty("background-image", "url('media/album-cover.jpg?v=" + time + "')", "important")
+  }, 500)
 }, 1000)
-
-setTimeout(() => {
-  setInterval(() => {
-    main.style.background = "url('media/album-cover.jpg?v=" + new Date().getTime() + "')"
-  }, 2000)
-}, 1000)
-
-setInterval(() => {
-  backup.style.background = "url('media/album-cover.jpg?v=" + new Date().getTime() + "')"
-}, 2000)
