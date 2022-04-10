@@ -87,6 +87,9 @@ Here's a standard config file:
 | `transparent` (boolean) | Make the widget's background transparent |
 | `interact` (boolean) | Make the widget interactable |
 | `draggable` (boolean) | Make the widget draggable |
+| `top` (boolean) | Make the widget stay on top of all windows |
+| `requirements` (array) | npm packages required for the widget to function; these packages are locally installed when the widget is installed |
+| `install` (string or array) | Script(s) to run during widget installation |
 
 <br />
 
@@ -103,6 +106,7 @@ Once widget builder is installed, the CLI can be accessed with the keyword `widg
 | `widgets list`               | Lists all installed widgets |
 | `widgets uninstall <widget>` | Uninstall widget by name |
 | `widgets config <widget>` | Configure widget by name |
+| `widgets start [folder]` | Starts the widget at folder |
 
 ### Options
 | Command | Definition |
