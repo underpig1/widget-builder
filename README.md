@@ -39,6 +39,10 @@ $ npm install -g widget-builder
 
 <br />
 
+# Samples
+Check out [Spotify listener](widgets/spotify-listener/media/preview.png), a widget for controlling media when you listen to music:
+![Spotify listener](widgets/spotify-listener/media/preview.png)
+
 # Publishing and installing widgets
 ### Publishing
 So you want to share your widget for distribution? Here's what to do:
