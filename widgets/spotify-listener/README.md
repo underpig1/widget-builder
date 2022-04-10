@@ -2,7 +2,7 @@
 
 ![Image](media/preview.png)
 
-## Install
+# Install
 
 First, make sure you install `widget-builder` with `npm` and download this repository.
 
@@ -10,3 +10,5 @@ First, make sure you install `widget-builder` with `npm` and download this repos
 ```
 widgets install
 ```
+
+On restart, the widget should be up and running.
