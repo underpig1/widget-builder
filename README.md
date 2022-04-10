@@ -9,12 +9,13 @@
 # Table of Contents
 1. [Installation](#installation)
 2. [Quickstart Guide](#quickstart-guide)
-3. [Publishing and installing](#publishing-and-installing-widgets)
+3. [Samples](#samples)
+4. [Publishing and installing](#publishing-and-installing-widgets)
    1. [Publishing](#publishing)
    2. [Installing](#installing)
-3. [The Config File](#the-config-file)
-4. [Using the CLI](#using-the-cli)
-5. [Contributing Widgets](#contributing-widgets)
+5. [The Config File](#the-config-file)
+6. [Using the CLI](#using-the-cli)
+7. [Contributing Widgets](#contributing-widgets)
 
 <br />
 
