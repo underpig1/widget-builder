@@ -8,9 +8,38 @@ body {
   width: 345px;
   height: 200px;
   border-radius: 12px;
-  background-size: 100%;
+  background-size: 135% !important;
   box-shadow: 0 5px 20px #00000011;
-  background-image: linear-gradient(to bottom, #00000050, #000000FF), url("media/album-cover.jpg")
+  background: #505050;
+  background-position: center center !important;
+  background-repeat: no-repeat;
+}
+
+.gradient {
+  display: block;
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  top: 0;
+  left: 0;
+  border-radius: inherit;
+  background-size: 100%;
+  background-image: linear-gradient(to bottom, #00000050, #000000FF);
+}
+
+#backup {
+  display: block;
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  top: 0;
+  left: 0;
+  border-radius: inherit;
+  background: #505050;
+  background-size: inherit !important;
+  background-position: inherit !important;
+  background-repeat: inherit;
+  z-index: -1;
 }
 
 .sector {
@@ -50,7 +79,6 @@ p {
   position: relative;
   width: 35px;
   height: 35px;
-  bottom: 5px;
   border-radius: 17.5px;
 }
 
@@ -135,7 +163,7 @@ p {
 }
 
 #pause-play, #pause-play div {
-  background-image: url("media/pause-play.svg");
+  background-image: url("media/play.svg");
 }
 
 #skip-forward, #skip-forward div {
@@ -176,10 +204,10 @@ p {
   20% {
     left: 0;
   }
-  50% {
-    left: -100%;
+  60% {
+    left: -120%;
   }
-  50.01% {
+  60.01% {
     left: 100%;
   }
   100% {
@@ -194,10 +222,10 @@ p {
   20% {
     right: 0;
   }
-  50% {
+  60% {
     right: 100%;
   }
-  50.01% {
+  60.01% {
     right: -100%;
   }
   100% {

@@ -7,6 +7,8 @@
   </head>
   <body>
     <div id = "main" class = "main draggable">
+      <div class = "gradient"></div>
+      <div id = "backup"></div>
       <div class = "sector" style = "top: 45px;">
         <div class = "buttons interact">
           <div class = "media-control">
@@ -17,15 +19,15 @@
         </div>
       </div>
       <div class = "sector" style = "top: 90px;">
-        <p id = "progress-time" style = "position: absolute; left: 35px; color: #D0D0D080 !important;">Playing...</p>
+        <p id = "progress-time" style = "position: absolute; left: 35px; color: #D0D0D080 !important; top: -7.5px;">0:00</p>
         <div class = "progress-bar">
           <div id = "progress-indicator"></div>
         </div>
       </div>
       <div class = "sector" style = "top: 130px;">
         <div class = "info">
-          <div class = "scroll-title l" style = "left: 35px;"><p id = "song-title">Violet</p></div>
-          <div class = "scroll-title r" style = "right: 35px;"><p id = "song-artist">Waterparks</p></div>
+          <div class = "scroll-title l" style = "left: 35px;"><p id = "song-title"></p></div>
+          <div class = "scroll-title r" style = "right: 35px;"><p id = "song-artist"></p></div>
         </div>
       </div>
     </div>

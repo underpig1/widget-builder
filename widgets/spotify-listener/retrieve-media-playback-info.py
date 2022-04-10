@@ -60,14 +60,28 @@ if len(sys.argv) > 1:
     elif sys.argv[1] == "loop":
         while True:
             media = asyncio.run(retrieve())
-            try:
-                get_thumbnail(media["thumbnail"])
-                media = {song_attr: media[song_attr] for song_attr in media if song_attr != "thumbnail"}
-                with open(parent + "\\result.json", "w") as file:
-                    json.dump(media, file)
-                time.sleep(0.1)
-            except:
-                pass
+            if media != None:
+                try:
+                    get_thumbnail(media["thumbnail"])
+                    media = {song_attr: media[song_attr] for song_attr in media if song_attr != "thumbnail"}
+                    media["playing"] = 1
+                    with open(parent + "\\result.json", "w") as file:
+                        json.dump(media, file)
+                except:
+                    with open(parent + "\\result.json", "r+") as file:
+                        data = json.load(file)
+                        data["playing"] = 0
+                        file.seek(0)
+                        json.dump(data, file)
+                        file.truncate()
+            else:
+                with open(parent + "\\result.json", "r+") as file:
+                    data = json.load(file)
+                    data["playing"] = 0
+                    file.seek(0)
+                    json.dump(data, file)
+                    file.truncate()
+            time.sleep(0.1)
     elif sys.argv[1] == "skip-back":
         try:
             current_session = asyncio.run(get_current_session())
@@ -79,6 +93,20 @@ if len(sys.argv) > 1:
         try:
             current_session = asyncio.run(get_current_session())
             current_session.try_skip_next_async()
+            sys.stdout.write("1")
+        except:
+            pass
+    elif sys.argv[1] == "pause":
+        try:
+            current_session = asyncio.run(get_current_session())
+            current_session.try_pause_async()
+            sys.stdout.write("1")
+        except:
+            pass
+    elif sys.argv[1] == "play":
+        try:
+            current_session = asyncio.run(get_current_session())
+            current_session.try_play_async()
             sys.stdout.write("1")
         except:
             pass

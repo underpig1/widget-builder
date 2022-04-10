@@ -12,7 +12,8 @@ function init() {
     show: false,
     webPreferences: {
       preload: path.join(__dirname, "preload.js"),
-      nodeIntegration: true
+      nodeIntegration: true,
+      contextIsolation: false
     }
   })
   main.setPosition(config.properties.x, config.properties.y)
