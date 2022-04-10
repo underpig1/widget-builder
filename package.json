@@ -1,6 +1,6 @@
 {
   "name": "widget-builder",
-  "version": "1.0.3",
+  "version": "1.0.2",
   "description": "CLI and program to compile HTML into custom desktop widgets",
   "license": "MIT",
   "keywords": ["windows", "widgets", "javascript", "html"],
