@@ -41,7 +41,7 @@ $ npm install -g widget-builder
 <br />
 
 # Samples
-Check out [Spotify listener](widgets/spotify-listener/media/preview.png), a widget for controlling media when you listen to music:
+Check out [Spotify listener](widgets/spotify-listener/media/preview.png), a widget for listening to your favorite tunes:
 ![Spotify listener](widgets/spotify-listener/media/preview.png)
 
 # Publishing and installing widgets
