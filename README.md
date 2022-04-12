@@ -44,7 +44,7 @@ $ npm install -g widget-builder
 
 # Samples
 Check out [Spotify listener](widgets/spotify-listener/media/preview.png), a widget for listening to your favorite tunes:
-![Spotify listener](widgets/spotify-listener/media/preview.png)
+[![Spotify listener](widgets/spotify-listener/media/preview.png)](https://github.com/underpig1/widget-builder/tree/master/widgets/spotify-listener)
 
 # Publishing and installing widgets
 ### Publishing
